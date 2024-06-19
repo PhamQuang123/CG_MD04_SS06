@@ -12,23 +12,9 @@ public class CustomerService implements ICustomerService {
     @Autowired
     private ICustomerRepository customerRepository;
 
-    @Override
-    public List<Customer> findAll() {
-        return customerRepository.findAll();
-    }
 
     @Override
-    public void save(Customer customer) {
-        customerRepository.save(customer);
-    }
-
-    @Override
-    public Customer findById(Long id) {
-        return customerRepository.findById(id);
-    }
-
-    @Override
-    public void remove(Long id) {
-        customerRepository.remove(id);
+    public boolean saveWithStoredProcedure(Customer customer) {
+        return customerRepository.saveWithStoredProcedure(customer);
     }
 }
